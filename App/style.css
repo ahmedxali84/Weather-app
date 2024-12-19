@@ -1,0 +1,141 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 0.5s, color 0.5s; /* Smooth transition */
+}
+
+/* Dark theme */
+.dark-theme {
+  background: linear-gradient(to bottom, #000000, #1f2a44); /* Black to blue gradient */
+}
+
+.dark-theme .weather-app {
+  background-color: #23395d;
+  border: 3px solid #00aaff; /* Sky blue border */
+  box-shadow: 0px 4px 12px rgba(0, 170, 255, 0.6); /* Sky blue box shadow */
+}
+
+/* Light theme */
+.light-theme {
+  background: linear-gradient(to bottom, #ffb3b3, #ffcc99); /* Peach to light orange gradient */
+}
+
+.light-theme .weather-app {
+  background-color: #fff7e6;
+  border: 3px solid #ff7f00; /* Dark orange border */
+  box-shadow: 0px 4px 12px rgba(255, 127, 0, 0.6); /* Dark orange box shadow */
+  color: #333; /* Dark text for better contrast */
+}
+
+/* Weather App container */
+.weather-app {
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Default box shadow */
+}
+
+/* Header styles */
+.weather-app h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#city {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 80%; /* Increased width for the input field */
+  background-color: #4f627b;
+  color: #fff;
+  transition: background-color 0.3s; /* Smooth transition for background color change */
+}
+
+/* Mix input field with button */
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #4f627b;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.search-bar button:hover {
+  background-color: #3e4d65;
+}
+
+/* Weather details section */
+.weather-details {
+  margin-top: 20px;
+}
+
+.titles {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #00aaff; /* Sky blue title */
+}
+
+.para {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.para strong {
+  font-weight: 500;
+}
+
+.bi {
+  margin-right: 10px;
+}
+
+/* Circular toggle button in top-right corner */
+.toggle-btn {
+  padding: 15px;
+  background-color: #00aaff;
+  border: none;
+  border-radius: 150%; /* Make it a circle */
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+  position: fixed; /* Position it at the top-right corner */
+  top: 20px;
+  right: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 170, 255, 0.6); /* Add a slight shadow */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.toggle-btn:hover {
+  background-color: #0077cc;
+}
+
+/* Input field light theme */
+.light-theme #city {
+  background-color: #ffcc99; /* Light orange color */
+}

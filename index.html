@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+       body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(480deg, #2d3e50, #3498db);
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #2d3e50;
+            border-radius: 8px;
+            padding-left: 20px;
+            padding-right: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            width: 300px;
+            border: 2px solid #3498db;
+            box-shadow: 0 2px 10px #3498db;
+            opacity: 0;
+            animation: slideUp 1s ease-out forwards 0.5s;
+        }
+
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 1s;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.05);
+            color: #2d3e50;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out forwards 1.2s;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 12px;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out forwards 1.4s;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: linear-gradient(160deg, #2980b9, #3498db);
+            transform: scale(1.1);
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .switch {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .switch a {
+            color: #3498db;
+            text-decoration: none;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 1.6s;
+        }
+
+        .switch a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="login-form">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <p class="switch">Don't have an account? <a href="./signup/index.html">Sign Up</a></p>
+    </div>
+</div>
+
+<script>
+    function login() {
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+
+        const user = JSON.parse(localStorage.getItem(username));
+
+        if (!user) {
+            Swal.fire({
+                title: 'Username Not Found!',
+                text: 'Please check your username.',
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            });
+        } else if (user.password !== password) {
+            Swal.fire({
+                title: 'Incorrect Password!',
+                text: 'The password you entered is incorrect.',
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            });
+        } else {
+            Swal.fire({
+                title: 'Login Successful!',
+                text: 'You are now logged in.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = './App/index.html'; // Redirect to a dashboard page (adjust as needed)
+                }
+            });
+        }
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
